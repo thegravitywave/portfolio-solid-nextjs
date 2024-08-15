@@ -1,18 +1,18 @@
 import { Metadata } from "next";
-import Hero from "@/components/Hero";
+import Hero from "@/src/components/Hero";
 // import Brands from "@/components/Brands";
-import Feature from "@/components/Features";
-import About from "@/components/About";
-import FeaturesTab from "@/components/FeaturesTab";
+import Feature from "@/src/components/Features";
+import About from "@/src/components/About";
+import FeaturesTab from "@/src/components/FeaturesTab";
 // import FunFact from "@/components/FunFact";
-import Integration from "@/components/Integration";
-import CTA from "@/components/CTA";
+import Integration from "@/src/components/Integration";
+import CTA from "@/src/components/CTA";
 // import FAQ from "@/components/FAQ";
 // import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
-import Blog from "@/components/Blog";
-import Testimonial from "@/components/Testimonial";
-import getHero from "@/lib/getHero";
+import Contact from "@/src/components/Contact";
+import Blog from "@/src/components/Blog";
+import Testimonial from "@/src/components/Testimonial";
+import getHero from "@/src/lib/getHero";
 
 export const metadata: Metadata = {
   title: "Gravity Wave",

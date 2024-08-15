@@ -1,4 +1,4 @@
-import SidebarLink from "@/components/Docs/SidebarLink";
+import SidebarLink from "@/src/components/Docs/SidebarLink";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

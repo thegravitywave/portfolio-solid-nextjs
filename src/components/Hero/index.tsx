@@ -1,10 +1,9 @@
 "use client";
-import { COMPANY_NAME } from "@/lib/const";
+import { COMPANY_NAME } from "@/src/lib/const";
 import Image from "next/image";
 import { useState } from "react";
 
 const Hero = ({ heroData }) => {
-  console.log({ heroData });
   const {
     data: {
       attributes: { title, slogan },
