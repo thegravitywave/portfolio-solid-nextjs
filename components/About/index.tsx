@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       {/* <!-- ===== About Start ===== --> */}
-      <section className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
+      <section id="Aboutus" className="overflow-hidden py-20">
         <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
@@ -75,15 +75,19 @@ const About = () => {
                 , where we reinvent the horizons of I.T and I.O.T solutions with
                 21st century breakthrough technology. As we know, in the present
                 period, more and more modifications occur in the I.T and I.O.T
-                industries. But with our adeptness in contemporary technology
-                and the fellowship of our clients, we get ahead of the curve of
-                the modern era and supply our clients with front-line I.T and
-                I.O.T services. We will assist you through IT and IoT services
-                with our experienced members so that you receive high-quality
+                industries.
+                <br></br>
+                <br></br>
+                But with our adeptness in contemporary technology and the
+                fellowship of our clients, we get ahead of the curve of the
+                modern era and supply our clients with front-line I.T and I.O.T
+                services. We will assist you through IT and IoT services with
+                our experienced members so that you receive high-quality
                 services.
               </p>
 
-              <div className="mt-7.5 flex items-center gap-5">
+              {/* counters */}
+              {/* <div className="mt-7.5 flex items-center gap-5">
                 <div className="flex h-15 w-15 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
                   <p className="text-metatitle2 font-semibold text-black dark:text-white">
                     01
@@ -108,7 +112,7 @@ const About = () => {
                   </h3>
                   <p>consectetur adipiscing elit fermentum ultricies.</p>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
@@ -116,7 +120,7 @@ const About = () => {
       {/* <!-- ===== About End ===== --> */}
 
       {/* <!-- ===== About Two Start ===== --> */}
-      <section>
+      {/* <section>
         <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
@@ -202,7 +206,7 @@ const About = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <!-- ===== About Two End ===== --> */}
     </>
   );
