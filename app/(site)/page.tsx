@@ -12,6 +12,7 @@ import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
+import getHero from "@/lib/getHero";
 
 export const metadata: Metadata = {
   title: "Gravity Wave",
@@ -20,10 +21,12 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-export default function Home() {
+export default async function Home() {
+  const heroData = await getHero();
+  console.log(heroData);
   return (
     <main>
-      <Hero />
+      <Hero heroData={heroData} />
       {/* <Brands /> */}
       <About />
       <Feature />
