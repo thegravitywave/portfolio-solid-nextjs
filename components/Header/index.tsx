@@ -36,22 +36,25 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
-        <div className="flex w-full items-center justify-between xl:w-1/4">
-          <a href="/">
+        <div className="flex w-full items-center justify-between xl:w-5/6">
+          <a href="/" className="flex items-center justify-between ">
             <Image
-              src="/images/logo/logo-dark.svg"
+              src="/images/logo/GravityWaveLogoW.svg"
               alt="logo"
               width={119.03}
-              height={30}
+              height={100}
               className="hidden w-full dark:block"
             />
             <Image
-              src="/images/logo/logo-light.svg"
+              src="/images/logo/GravityWaveLogoB.svg"
               alt="logo"
               width={119.03}
-              height={30}
+              height={100}
               className="w-full dark:hidden"
             />
+            <h1 className="items-center whitespace-nowrap px-6 text-2xl  font-bold text-black dark:text-white">
+              Gravity Wave
+            </h1>
           </a>
 
           {/* <!-- Hamburger Toggle BTN --> */}
@@ -152,21 +155,13 @@ const Header = () => {
           </nav>
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
-            <ThemeToggler />
-
-            <Link
-              href="https://github.com/NextJSTemplates/solid-nextjs"
-              className="text-regular font-medium text-waterloo hover:text-primary"
-            >
-              GitHub Repo 🌟
-            </Link>
-
             <Link
               href="https://nextjstemplates.com/templates/solid"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              Get Pro 🔥
+              Contact us
             </Link>
+            <ThemeToggler />
           </div>
         </div>
       </div>
