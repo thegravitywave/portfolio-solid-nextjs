@@ -10,6 +10,7 @@ const Hero = ({ heroData }) => {
       attributes: { title, slogan },
     },
   } = heroData;
+
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {

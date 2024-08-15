@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const heroData = await getHero();
-  console.log(heroData);
+
   return (
     <main>
       <Hero heroData={heroData} />
