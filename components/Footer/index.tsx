@@ -53,10 +53,18 @@ const Footer = () => {
                   contact
                 </p>
                 <a
-                  href="#"
+                  href="tel:7698972155"
                   className="text-itemtitle font-medium text-black dark:text-white"
                 >
-                  hello@solid.com
+                  7698972155
+                </a>
+                <br></br>
+
+                <a
+                  href="mailto:thegravitywave@gmail.com"
+                  className="text-itemtitle font-medium text-black dark:text-white"
+                >
+                  thegravitywave@gmail.com
                 </a>
               </motion.div>
 
@@ -264,11 +272,11 @@ const Footer = () => {
               className="animate_top"
             >
               <ul className="flex items-center gap-8">
-                <li>
+                {/* <li>
                   <a href="#" className="hover:text-primary">
                     English
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#" className="hover:text-primary">
                     Privacy Policy

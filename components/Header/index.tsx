@@ -11,8 +11,11 @@ const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
+  const [activePath, setActivePath] = useState("");
 
   const pathUrl = usePathname();
+
+  console.log(pathUrl, "pathurl");
 
   // Sticky menu
   const handleStickyMenu = () => {
@@ -36,7 +39,8 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
-        <div className="flex w-full items-center justify-between xl:w-5/6">
+        <div className="flex w-full items-center justify-between xl:w-3/4">
+          {/* // <div className="flex w-full items-center justify-between xl:w-5/6"> */}
           <a href="/" className="flex items-center justify-between ">
             <Image
               src="/images/logo/GravityWaveLogoW.svg"
@@ -140,11 +144,12 @@ const Header = () => {
                   ) : (
                     <Link
                       href={`${menuItem.path}`}
-                      className={
-                        pathUrl === menuItem.path
-                          ? "text-primary hover:text-primary"
-                          : "hover:text-primary"
-                      }
+                      className={"hover:text-primary"}
+                      // className={
+                      //   activePath === menuItem.path
+                      //     ? "text-primary hover:text-primary"
+                      //     : "hover:text-primary"
+                      // }
                     >
                       {menuItem.title}
                     </Link>
