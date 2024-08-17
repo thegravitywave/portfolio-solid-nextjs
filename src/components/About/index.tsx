@@ -9,7 +9,7 @@ const About = () => {
       {/* <!-- ===== About Start ===== --> */}
       <section id="Aboutus" className="overflow-hidden py-20">
         <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex  gap-8 lg:gap-32.5">
             <motion.div
               variants={{
                 hidden: {
@@ -75,15 +75,14 @@ const About = () => {
                 , where we reinvent the horizons of I.T and I.O.T solutions with
                 21st century breakthrough technology. As we know, in the present
                 period, more and more modifications occur in the I.T and I.O.T
-                industries.
+                industries. But with our adeptness in contemporary technology
+                and the fellowship of our clients, we get ahead of the curve of
+                the modern era and supply our clients with front-line I.T and
+                I.O.T services.
                 <br></br>
                 <br></br>
-                But with our adeptness in contemporary technology and the
-                fellowship of our clients, we get ahead of the curve of the
-                modern era and supply our clients with front-line I.T and I.O.T
-                services. We will assist you through IT and IoT services with
-                our experienced members so that you receive high-quality
-                services.
+                We will assist you through IT and IoT services with our
+                experienced members so that you receive high-quality services.
               </p>
 
               {/* counters */}

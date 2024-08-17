@@ -28,7 +28,7 @@ const Footer = () => {
                 viewport={{ once: true }}
                 className="animate_top w-1/2 lg:w-1/4"
               >
-                <a href="/" className="relative">
+                <a href="/" className="relative flex items-center">
                   <Image
                     width={60}
                     height={60}
@@ -43,22 +43,23 @@ const Footer = () => {
                     alt="Logo"
                     className="hidden dark:block"
                   />
+                  <p className="ml-5 text-2xl font-bold">Gravity Wave</p>
                 </a>
 
                 <p className="mb-10 mt-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <b>"To a world of limitless possibilities"</b>
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
                   contact
                 </p>
-                <a
+                {/* <a
                   href="tel:7698972155"
                   className="text-itemtitle font-medium text-black dark:text-white"
                 >
                   7698972155
                 </a>
-                <br></br>
+                <br></br> */}
 
                 <a
                   href="mailto:thegravitywave@gmail.com"
@@ -94,7 +95,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="#Home"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Home
@@ -102,26 +103,26 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="#Services"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Product
+                        Services
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="#Technologies"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Careers
+                        Technologies
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="#Testimonials"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Pricing
+                        Testimonials
                       </a>
                     </li>
                   </ul>
@@ -152,10 +153,10 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="#Aboutus"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Company
+                        About Us
                       </a>
                     </li>
                     <li>
@@ -168,7 +169,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="#Blog"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Our Blog
@@ -176,7 +177,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="#Contact"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Contact Us
@@ -309,7 +310,8 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Solid. All rights reserved
+                &copy; {new Date().getFullYear()} Gravity Wave. All rights
+                reserved
               </p>
             </motion.div>
 
