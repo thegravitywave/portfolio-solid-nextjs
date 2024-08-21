@@ -32,7 +32,7 @@ export default function ScrollToTop() {
       <a
         href="https://wa.me/917698972155?text=Hello,%20Can%20you%20help%20me?"
         role="button"
-        className="mb-2 inline-block rounded-full bg-[#ffffff] p-2 shadow-xl dark:bg-[#181C31] dark:shadow-md dark:shadow-slate-500"
+        className="mb-2 inline-block rounded-full bg-[#ffffff] p-2 shadow-xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-125 dark:bg-[#181C31] dark:shadow-md dark:shadow-slate-500"
       >
         <span className="[&>svg]:h-8 [&>svg]:w-8">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
