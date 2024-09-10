@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import AboutUsImg from "@/public/images/about/aboutus.png";
 
 const About = () => {
   return (
@@ -22,24 +23,23 @@ const About = () => {
                   x: 0,
                 },
               }}
+              animate={{
+                scale: [1, 2, 2, 1, 1],
+                borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+              }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_left relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2"
+              className="animate_left relative mx-auto hidden aspect-[588/540] md:block md:w-1/2"
             >
-              <Image
-                src="/images/about/about-light-01.png"
-                alt="About"
-                className="dark:hidden"
-                fill
-              />
-              <Image
+              <Image src={AboutUsImg} alt="About" className="" fill />
+              {/* <Image
                 src="/images/about/about-dark-01.png"
                 alt="About"
                 className="hidden dark:block"
                 fill
-              />
+              /> */}
             </motion.div>
             <motion.div
               variants={{
@@ -67,7 +67,7 @@ const About = () => {
                   ABOUT US
                 </span>
               </h2>
-              <p>
+              <p className="text-justify">
                 Welcome to modern-age innovation{" "}
                 <span className="relative inline-block font-bold before:absolute before:bottom-0.5 before:left-0 before:-z-1 before:h-1 before:w-full before:bg-titlebg dark:before:bg-titlebgdark">
                   Gravity Wave

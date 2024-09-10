@@ -1,6 +1,9 @@
 "use client";
 import { COMPANY_NAME } from "@/src/lib/const";
+import Spline from "@splinetool/react-spline";
+import Lottie from "lottie-react";
 import Image from "next/image";
+import Circle from "@/public/lottie/circle.json";
 import { useState } from "react";
 
 const Hero = ({ heroData }) => {
@@ -91,7 +94,7 @@ const Hero = ({ heroData }) => {
                   className="absolute -right-6.5 bottom-0 z-1"
                 />
                 <div className=" relative aspect-[700/444] w-full">
-                  <Image
+                  {/* <Image
                     className="shadow-solid-l dark:hidden"
                     src="/images/hero/hero-light.svg"
                     alt="Hero"
@@ -102,6 +105,12 @@ const Hero = ({ heroData }) => {
                     src="/images/hero/hero-dark.svg"
                     alt="Hero"
                     fill
+                  /> */}
+                  <Lottie
+                    animationData={Circle}
+                    height={100}
+                    size={100}
+                    width={100}
                   />
                   {/* <Spline scene="https://prod.spline.design/Fh0tSHZ828Re6Eud/scene.splinecode" /> */}
                 </div>

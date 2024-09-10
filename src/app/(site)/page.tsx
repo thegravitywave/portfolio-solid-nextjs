@@ -10,8 +10,8 @@ import CTA from "@/src/components/CTA";
 // import FAQ from "@/components/FAQ";
 // import Pricing from "@/components/Pricing";
 import Contact from "@/src/components/Contact";
-import Blog from "@/src/components/Blog";
-import Testimonial from "@/src/components/Testimonial";
+// import Blog from "@/src/components/Blog";
+// import Testimonial from "@/src/components/Testimonial";
 import getHero from "@/src/lib/getHero";
 
 export const metadata: Metadata = {
@@ -35,8 +35,8 @@ export default async function Home() {
       {/* <FunFact /> */}
       <CTA />
       {/* <FAQ /> */}
-      <Blog />
-      <Testimonial />
+      {/* <Blog /> */}
+      {/* <Testimonial /> */}
       {/* <Pricing /> */}
       <Contact />
     </main>

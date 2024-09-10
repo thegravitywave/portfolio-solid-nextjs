@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeaturesTabItem from "./FeaturesTabItem";
 import featuresTabData from "./featuresTabData";
 
@@ -9,214 +9,95 @@ import { motion } from "framer-motion";
 const FeaturesTab = () => {
   const [currentTab, setCurrentTab] = useState("tabOne");
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll(".tab-section");
+      let current = "tabOne";
+
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY >= sectionTop - 50) {
+          const id = section.getAttribute("id");
+          if (id) {
+            current = id;
+          }
+        }
+      });
+
+      setCurrentTab(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      {/* <!-- ===== Features Tab Start ===== --> */}
-      <section id="Roadmap" className="relative pb-20 pt-18.5 lg:pb-22.5">
-        <div className="relative mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-          <div className="absolute -top-16 -z-1 mx-auto h-[350px] w-[90%]">
-            <Image
-              fill
-              className="dark:hidden"
-              src="/images/shape/shape-dotted-light.svg"
-              alt="Dotted Shape"
-            />
-            <Image
-              fill
-              className="hidden dark:block"
-              src="/images/shape/shape-dotted-dark.svg"
-              alt="Dotted Shape"
-            />
+    <section id="features" className="container mx-auto flex flex-row">
+      {/* <!-- Tab Menues Start --> */}
+      <div className="sticky top-60 h-1/2 overflow-hidden rounded-[10px] border border-stroke bg-white shadow-solid-5 dark:border-strokedark dark:bg-blacksection dark:shadow-solid-6">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-start gap-7.5 p-4"
+        >
+          {featuresTabData.map((feature, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrentTab(feature.id)}
+              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark ${
+                currentTab === feature.id
+                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
+                  : ""
+              }`}
+            >
+              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
+                <p className="text-metatitle3 font-medium text-black dark:text-white">
+                  {index + 1}
+                </p>
+              </div>
+              <div className="md:w-3/5 lg:w-auto">
+                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
+                  {feature.title}
+                </button>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+      {/* <!-- Tab Menues End --> */}
+
+      {/* <!-- Tab Content Start --> */}
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: -20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5, delay: 0.5 }}
+        viewport={{ once: true }}
+        className="animate_top mx-auto flex h-max max-w-c-1154 flex-col"
+      >
+        {featuresTabData.map((feature, key) => (
+          <div
+            id={feature.id}
+            className={`tab-section mb-10 ${
+              currentTab === feature.id ? "fade-in" : ""
+            }`}
+            key={key}
+          >
+            <FeaturesTabItem featureTab={feature} />
           </div>
-
-          {/* <!-- Tab Menues Start --> */}
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top mb-15 flex flex-wrap justify-center rounded-[10px] border border-stroke bg-white shadow-solid-5 dark:border-strokedark dark:bg-blacksection dark:shadow-solid-6 md:flex-nowrap md:items-center lg:gap-7.5 xl:mb-21.5 xl:gap-12.5"
-          >
-            <div
-              onClick={() => setCurrentTab("tabOne")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabOne"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  01
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Requirement Gathering
-                </button>
-              </div>
-            </div>
-            <div
-              onClick={() => setCurrentTab("tabTwo")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabTwo"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  02
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Prioritization and Roadmap
-                </button>
-              </div>
-            </div>
-            <div
-              onClick={() => setCurrentTab("tabThree")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabThree"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  03
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Design and Prototyping
-                </button>
-              </div>
-            </div>
-            <div
-              onClick={() => setCurrentTab("tabFour")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabFour"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  04
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Development
-                </button>
-              </div>
-            </div>
-            {/* <div
-              onClick={() => setCurrentTab("tabFive")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabFive"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  05
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Testing
-                </button>
-              </div>
-            </div>
-            <div
-              onClick={() => setCurrentTab("tabSix")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabSix"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  06
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Launch
-                </button>
-              </div>
-            </div>
-            <div
-              onClick={() => setCurrentTab("tabSeven")}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === "tabSeven"
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">
-                  07
-                </p>
-              </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Maintenance and Iteration
-                </button>
-              </div>
-            </div> */}
-          </motion.div>
-          {/* <!-- Tab Menues End --> */}
-
-          {/* <!-- Tab Content Start --> */}
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="animate_top mx-auto max-w-c-1154"
-          >
-            {featuresTabData.map((feature, key) => (
-              <div
-                className={feature.id === currentTab ? "block" : "hidden"}
-                key={key}
-              >
-                <FeaturesTabItem featureTab={feature} />
-              </div>
-            ))}
-          </motion.div>
-          {/* <!-- Tab Content End --> */}
-        </div>
-      </section>
-      {/* <!-- ===== Features Tab End ===== --> */}
-    </>
+        ))}
+      </motion.div>
+      {/* <!-- Tab Content End --> */}
+    </section>
   );
 };
 
